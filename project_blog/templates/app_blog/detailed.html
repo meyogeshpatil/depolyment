@@ -1,0 +1,49 @@
+{% extends 'app_blog/base.html'%}
+{% block tittle_block%}{{post.title}}{% endblock %}
+{%block content_block%}
+<style media="screen">
+  input, textarea {
+    background-color: #E5E4E2;
+    color: #36454F;
+    font-size:15px;
+    font-weight: bolder;
+  }
+
+
+#abc{
+    color:#FAFA33;
+  }
+</style>
+<h1>{{post.title|title}}</h1><hr>
+
+<p id='abc'><em>Published on {{post.publish}} by {{post.author|title}}</em></p>
+<h6 id='lmn'>{{post.body}}</h6><br>
+
+<div class="container" align='center'>
+  <a href="/{{post.id}}/share" class="btn btn-lg btn-success active">Share post by Email</a>
+</div>
+{% with comments.count as i%}
+<h2>{{i}} Comment{{i|pluralize}}</h2>
+{%endwith%}
+{%if comments%}
+{% for j in comments%}
+<p id='abc'>Comment {{forloop.counter}} by {{j.name}} on {{j.created}}</p>
+<div class="cb">
+  <h3><em>{{j.body|linebreaks}}</em></h3><hr>
+</div>
+{%endfor%}
+{%else%}
+<p>There is no comment yet!!</p>
+{%endif%}
+{%if csubmit%}
+<h2>Your comment added successfully</h2>
+{%else%}
+<h1>Please comment on above post, your feedback is most valuable resource for us.</h1>
+<form  method="post">
+  {{form.as_p}}
+  {%csrf_token%}
+  <input type="submit" class="btn btn-lg btn-success active" value="Submit">
+
+</form>
+{%endif%}
+{%endblock%}

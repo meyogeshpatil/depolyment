@@ -1,0 +1,49 @@
+.content{
+
+width: 70%;
+float: left;
+background: #36454F;
+color: #E5E4E2;
+padding: 10px;
+height: 100%
+}
+.sidebar{
+
+  width:30%;
+  float:right;
+  background: #7393B3;
+  color: #E5E4E2;
+  padding: 10px;
+  height: 100%
+}
+
+h1
+{
+  text-align: center;
+}
+hr{
+  border-bottom: 2px
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+}
+
+body{
+  background: #36454F;
+}
+
+#abc{
+
+  color:#FAFA33;
+
+}
+
+
+h6{
+color: #E5E4E2;
+
+}
+
+#pqr{
+color: #E5E4E2;
+}

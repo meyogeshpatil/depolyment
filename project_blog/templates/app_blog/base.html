@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+{% load tags%}
+{% load static %}
+<style media="screen">
+#obc{
+  font-size: 35px;
+  color: #FAFA33;
+}
+#cqr{
+  color:#FAFA33;
+}
+</style>
+
+  <head>
+    <meta charset="utf-8">
+    <title>{% block tittle_block%}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/display.css'%}">
+    <link rel="stylesheet" href="{% static 'css/detailed.css'%}">
+  </head>
+  <body>
+    <div class="content">
+      {%block content_block%}
+      {% endblock %}
+
+    </div>
+
+    <div class="sidebar">
+      <h2>Yogesh's Blog</h2>
+      <p>Total number of blogs has been posted on this website:<span id="obc">{%my_tag%}</span></p>
+      <h3>Latest Posts:</h3>{% latest_blogs 5 %}
+      <h3>Most Commented Post:</h3>{% most_commented 4%}
+    </div>
+  </body>
+</html>

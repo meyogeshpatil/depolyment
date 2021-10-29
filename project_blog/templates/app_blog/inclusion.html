@@ -1,0 +1,10 @@
+<style media="screen">
+#cqr{
+  color:#FAFA33;
+}
+</style>
+<ul>
+  {%for i in latest%}
+  <li><a id="cqr" href="{{i.get_absolute_url}}">{{i.title|title}}</a></li>
+  {%endfor%}
+</ul>

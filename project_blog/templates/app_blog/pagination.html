@@ -1,0 +1,21 @@
+<style media="screen">
+  #omg{
+      color:#FAFA33;
+      text-decoration: underline;
+  }
+</style>
+
+<div class="paginator">
+  <h4>
+  {% if page.has_previous %}
+  <a  id='omg' href="?page={{page.previous_page_number}}">Prev</a>
+  {%endif%}&nbsp
+  Page {{page.number}} of {{page.paginator.num_pages}}
+  {% if page.has_next %}
+  &nbsp<a id='omg' href="?page={{page.next_page_number}}">Next</a>
+  {%endif%}
+  </h4>
+
+
+
+</div>

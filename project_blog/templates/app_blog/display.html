@@ -1,0 +1,18 @@
+{% extends 'app_blog/base.html'%}
+{% block tittle_block%}Blog home page{% endblock %}
+{%block content_block%}
+<h1>Yogesh's Blog</h1><hr>
+{% if tag%}
+<h2>Blogs tagged with '{{tag.name}}'</h2>
+{%endif %}
+{%for i in display%}
+<a id='pqr' href="{{i.get_absolute_url}}"><h2>{{i.title|title}}</h2></a>
+<p id='abc'><em>Published on {{i.publish}} by {{i.author|title}}</em></p>
+<p id='abc'> Tags:&nbsp
+  {% for k in i.tags.all%}
+  <a id='abc' class=" btn btn-success" href="% url 'tag_name' tag.slug %">{{k.name}}</a>
+{%endfor%}</p>
+<h6>{{i.body|truncatewords:30|linebreaks}}</h6>
+{% endfor %}<br>
+{% include 'app_blog/pagination.html' with page=display%}
+{% endblock %}
